@@ -1,0 +1,10 @@
+https://github.com/oscmejia/os-utils
+
+https://www.npmjs.com/package/os-name
+
+https://github.com/sebhildebrandt/systeminformation
+
+
+Run this to build:
+
+electron-packager ./ "nMon Agent" --platform=win32 --arch=ia32 --build-version=1.0 --icon=./icon_large.ico

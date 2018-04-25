@@ -1,0 +1,31 @@
+{
+  "name": "nmonagent-windows",
+  "version": "1.0.0",
+  "description": "nMon Server Agent for Windows",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeniner/nmonagent-windows.git"
+  },
+  "author": "Codeniner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeniner/nmonagent-windows/issues"
+  },
+  "homepage": "https://github.com/codeniner/nmonagent-windows#readme",
+  "dependencies": {
+    "auto-launch": "^5.0.5",
+    "delay": "^2.0.0",
+    "electron": "^1.8.4",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-winstaller": "^2.6.4",
+    "npm": "^5.8.0",
+    "os-name": "^2.0.1",
+    "os-utils": "0.0.14",
+    "request": "^2.85.0",
+    "systeminformation": "^3.38.0"
+  }
+}

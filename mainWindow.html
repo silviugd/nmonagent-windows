@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>nMon Agent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper teal">
+            <a class="brand-logo center">nMon Agent</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br>
+        <form>
+            <div>
+                <label>Server Key</label>
+                <input type="text" id="serverkey">
+            </div>
+            <div>
+                <label>Gateway Address</label>
+                <input type="text" id="gateway">
+            </div>
+
+
+            <button type="submit" class="btn waves-effect waves-light right">Save</button>
+        </form>
+    </div>
+
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+
+        const form = document.querySelector('form');
+
+        ipcRenderer.on('config:save', function(e, [serverkey, gateway]){
+            document.querySelector("#serverkey").value = serverkey;
+            document.querySelector("#gateway").value = gateway;
+        });
+
+        ipcRenderer.on('config:show', function(e, [serverkey, gateway]){
+            document.querySelector("#serverkey").value = serverkey;
+            document.querySelector("#gateway").value = gateway;
+        });
+
+
+        form.addEventListener('submit', submitForm);
+
+        function submitForm(e) {
+            e.preventDefault();
+
+            const serverkey = document.querySelector('#serverkey').value;
+            const gateway = document.querySelector('#gateway').value;
+
+            ipcRenderer.send("config:save", [serverkey, gateway]);
+        }
+    </script>
+</body>
+</html>
